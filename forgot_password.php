@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $reset_token = generatePasswordResetToken($user['id']);
 
             // Create reset link - REMPLACEZ PAR VOTRE URL RÉELLE
-            $reset_link = "http://" . $_SERVER['HTTP_HOST'] . "/reset_password.php?token=" . $reset_token;
+            $reset_link = "http://" . $_SERVER['HTTP_HOST'] . "/secureaccess/reset_password.php?token=" . $reset_token;
             
             // Préparer l'email en HTML pour un meilleur affichage
             $subject = "Demande de réinitialisation de mot de passe";
