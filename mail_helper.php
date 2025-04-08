@@ -4,30 +4,9 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-// Configuration automatique en fonction du domaine de l'email expéditeur
 define('SMTP_CONFIG', [
     'gmail.com' => [
         'host' => 'smtp.gmail.com',
-        'port' => 587,
-        'secure' => 'tls'
-    ],
-    'outlook.com' => [
-        'host' => 'smtp.office365.com',
-        'port' => 587,
-        'secure' => 'tls'
-    ],
-    'yahoo.com' => [
-        'host' => 'smtp.mail.yahoo.com',
-        'port' => 465,
-        'secure' => 'ssl'
-    ],
-    'hostinger.com' => [
-        'host' => 'smtp.hostinger.com',
-        'port' => 465,
-        'secure' => 'ssl'
-    ],
-    'default' => [
-        'host' => 'smtp.example.com',
         'port' => 587,
         'secure' => 'tls'
     ]
@@ -42,7 +21,6 @@ function sendEmail($to, $subject, $message, $isHTML = true, $smtpHost = null, $s
     try {
         $mail = new PHPMailer(true);
         
-        // Si des paramètres SMTP spécifiques sont fournis, les utiliser
         if ($smtpHost && $smtpUser && $smtpPass) {
             $host = $smtpHost;
             $user = $smtpUser;

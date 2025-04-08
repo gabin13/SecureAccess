@@ -26,15 +26,4 @@ function logUserActivity($username, $activity) {
     $logEntry = "$timestamp - User: $username - Activity: $activity\n";
     file_put_contents($logFile, $logEntry, FILE_APPEND);
 }
-
-// Function to start server log
-function startServerLog() {
-    $logFile = "server_start.log";
-    $timestamp = date('Y-m-d H:i:s');
-    $logEntry = "Server started at: $timestamp\n";
-    file_put_contents($logFile, $logEntry, FILE_APPEND);
-}
-
-// Call this when the server starts
-startServerLog();
 ?>
