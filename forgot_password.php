@@ -68,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $message, 
                 true, 
                 'smtp.gmail.com', 
-                'gabingabin46@gmail.com',
-                'rzwz nacn uecm dpxt'
+                'votre_email@gmail.com',
+                'votre_mot_de_passe_app'
             );
 
             if (!$emailSent) {

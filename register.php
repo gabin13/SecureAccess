@@ -20,9 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     if (strlen($password) < 8) {
-        $errors[] = "Password must be at least 8 characters";
+        $errors[] = "Le mot de passe doit contenir au moins 8 caractères";
     }
     
+    if (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
+        $errors[] = "Le mot de passe doit contenir des caractère spéciaux";
+    }
+
     if ($password !== $confirm_password) {
         $errors[] = "Passwords do not match";
     }

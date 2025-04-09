@@ -21,8 +21,8 @@ function sendEmail($to, $subject, $message, $isHTML = true, $smtpHost = null, $s
     try {
         $mail = new PHPMailer(true);
         
-            $user = getenv('SMTP_USER') ?: 'gabingabin46@gmail.com';
-            $pass = getenv('SMTP_PASS') ?: 'rzwz nacn uecm dpxt';
+            $user = getenv('SMTP_USER') ?: 'votre_email@gmail.com';
+            $pass = getenv('SMTP_PASS') ?: 'votre_mot_de_passe_app';
             $smtpConfig = getSmtpConfig($user);
             $host = $smtpConfig['host'];
             $port = $smtpConfig['port'];

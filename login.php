@@ -45,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $message, 
                 true, 
                 'smtp.gmail.com', 
-                'gabingabin46@gmail.com',  // Adresse Gmail
-                'rzwz nacn uecm dpxt'       // Mot de passe d'application
+                'votre_email@gmail.com',  // Adresse Gmail
+                'votre_mot_de_passe_app'       // Mot de passe d'application
             );
 
             if (!$emailSent) {

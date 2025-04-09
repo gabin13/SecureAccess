@@ -7,11 +7,11 @@ function verifyTwoFactorToken($user_id, $token) {
     $now = date('Y-m-d H:i:s');
     
     $stmt = $conn->prepare("SELECT * FROM auth_tokens 
-                           WHERE user_id = ? 
-                           AND token_type = 'two_factor' 
-                           AND token = ? 
-                           AND expires_at > ? 
-                           AND used = FALSE");
+                        WHERE user_id = ? 
+                        AND token_type = 'two_factor' 
+                        AND token = ? 
+                        AND expires_at > ? 
+                        AND used = FALSE");
     $stmt->execute([$user_id, $token, $now]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
