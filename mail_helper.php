@@ -21,23 +21,14 @@ function sendEmail($to, $subject, $message, $isHTML = true, $smtpHost = null, $s
     try {
         $mail = new PHPMailer(true);
         
-        if ($smtpHost && $smtpUser && $smtpPass) {
-            $host = $smtpHost;
-            $user = $smtpUser;
-            $pass = $smtpPass;
-            $port = $smtpPort ?: 587;
-            $secure = $smtpSecure ?: 'tls';
-        } else {
-            // Sinon, utiliser la configuration automatique
             $user = getenv('SMTP_USER') ?: 'gabingabin46@gmail.com';
             $pass = getenv('SMTP_PASS') ?: 'rzwz nacn uecm dpxt';
             $smtpConfig = getSmtpConfig($user);
             $host = $smtpConfig['host'];
             $port = $smtpConfig['port'];
             $secure = $smtpConfig['secure'];
-        }
+        
 
-        // Configuration du serveur SMTP
         $mail->isSMTP();
         $mail->Host       = $host;
         $mail->SMTPAuth   = true;
@@ -57,17 +48,14 @@ function sendEmail($to, $subject, $message, $isHTML = true, $smtpHost = null, $s
             );
         }
 
-        // Expéditeur et destinataire
         $mail->setFrom($user, 'Système d\'authentification');
         $mail->addAddress($to);
 
-        // Contenu du mail
         $mail->isHTML($isHTML);
         $mail->Subject = $subject;
         $mail->Body    = $message;
         $mail->AltBody = strip_tags($message);
 
-        // Envoi de l'email
         $mail->send();
         return true;
     } catch (Exception $e) {

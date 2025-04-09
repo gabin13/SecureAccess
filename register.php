@@ -44,14 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $errors[] = "Email already exists";
                 }
             } else {
-                // Hash password
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 
-                // Insert new user
                 $stmt = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')");
                 $stmt->execute([$username, $email, $hashed_password]);
                 
-                // Log the registration
                 logUserActivity($username, "User Registration");
                 
                 $success = "Registration successful! You can now login.";

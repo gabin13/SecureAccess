@@ -11,7 +11,7 @@
         if (isset($error)) echo "<p class='error'>$error</p>"; 
         if (isset($success)) echo "<p class='success'>$success</p>"; 
 
-        if (!isset($success)): // Montrer le formulaire seulement si le reset n'a pas réussi
+        if (!isset($success)):
         ?>
         <form method="post">
             <input type="password" name="password" placeholder="Nouveau mot de passe" required>
