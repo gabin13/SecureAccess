@@ -114,6 +114,7 @@ secureaccess/
    $user = 'votre_email@gmail.com';
    $pass = 'votre_mot_de_passe_app';
    ```
+   Ne pas oublier de configurer la clé d'application sur votre compte gmail
 
 ## Utilisation
 
