@@ -64,7 +64,7 @@ secureaccess/
 
 1. Clonez le dépôt dans votre répertoire web:
    ```
-   git clone https://github.com/votre-repo/secureaccess.git
+   git clone https://github.com/gabin13/SecureAccess
    ```
 
 2. Installez les dépendances avec Composer:
